@@ -33,6 +33,7 @@ class Calc {
   double _generatorOutputPower = 0;
 
   void calcMotor() {
+    print("in motor");
     _a = i1 + i2;
     _b = i2 + i4;
     double motorRa = 1.3;
@@ -59,55 +60,56 @@ class Calc {
     _generatorEfficiency = (_generatorOutputPower / _generatorInputPower) * 100;
   }
 
-  String retMCuLoss() {
-    return _motorArmatureCuLoss.toStringAsFixed(2);
+  double retMCuLoss() {
+    print(_motorArmatureCuLoss);
+    return _motorArmatureCuLoss;
   }
 
-  String retGCuLoss() {
-    return _generatorArmatureCuLoss.toStringAsFixed(2);
+  double retGCuLoss() {
+    return _generatorArmatureCuLoss;
   }
 
-  String retMFLoss() {
-    return _motorFieldLoss.toStringAsFixed(2);
+  double retMFLoss() {
+    return _motorFieldLoss;
   }
 
-  String retGFLoss() {
-    return _generatorFieldLoss.toStringAsFixed(2);
+  double retGFLoss() {
+    return _generatorFieldLoss;
   }
 
-  String retSPMLoss() {
-    return _strayLossPerMachine.toStringAsFixed(2);
+  double retSPMLoss() {
+    return _strayLossPerMachine;
   }
 
-  String retMTLoss() {
-    return _totalMotorLoss.toStringAsFixed(2);
+  double retMTLoss() {
+    return _totalMotorLoss;
   }
 
-  String retGTLoss() {
-    return _totalGeneratorLoss.toStringAsFixed(2);
+  double retGTLoss() {
+    return _totalGeneratorLoss;
   }
 
-  String retMIP() {
-    return _motorInputPower.toStringAsFixed(2);
+  double retMIP() {
+    return _motorInputPower;
   }
 
-  String retGIP() {
-    return _generatorInputPower.toStringAsFixed(2);
+  double retGIP() {
+    return _generatorInputPower;
   }
 
-  String retMOP() {
-    return _motorOutputPower.toStringAsFixed(2);
+  double retMOP() {
+    return _motorOutputPower;
   }
 
-  String retGOP() {
-    return _generatorOutputPower.toStringAsFixed(2);
+  double retGOP() {
+    return _generatorOutputPower;
   }
 
-  String retME() {
-    return _motorEfficiency.toStringAsFixed(2);
+  double retME() {
+    return _motorEfficiency;
   }
 
-  String retGE() {
-    return _generatorEfficiency.toStringAsFixed(2);
+  double retGE() {
+    return _generatorEfficiency;
   }
 }

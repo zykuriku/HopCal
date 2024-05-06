@@ -1,5 +1,6 @@
+import 'package:dc/screens/results_generator.dart';
 import 'package:flutter/material.dart';
-import 'package:dc/screens/results_page.dart';
+import 'package:dc/screens/results_motor.dart';
 
 import '../utilities/calculations.dart';
 
@@ -44,7 +45,7 @@ class _InputState extends State<Input> {
                       child: TextField(
                         textAlign: TextAlign.center,
                         onChanged: (value) {
-                          i1 = value as double;
+                          i1 = double.parse(value);
                         },
                         decoration: const InputDecoration(
                           contentPadding: EdgeInsets.symmetric(
@@ -83,7 +84,7 @@ class _InputState extends State<Input> {
                       child: TextField(
                         textAlign: TextAlign.center,
                         onChanged: (value) {
-                          i2 = value as double;
+                          i2 = double.parse(value);
                         },
                         decoration: const InputDecoration(
                           contentPadding: EdgeInsets.symmetric(
@@ -122,7 +123,7 @@ class _InputState extends State<Input> {
                       child: TextField(
                         textAlign: TextAlign.center,
                         onChanged: (value) {
-                          i3 = value as double;
+                          i3 = double.parse(value);
                         },
                         decoration: const InputDecoration(
                           contentPadding: EdgeInsets.symmetric(
@@ -161,7 +162,7 @@ class _InputState extends State<Input> {
                       child: TextField(
                         textAlign: TextAlign.center,
                         onChanged: (value) {
-                          i4 = value as double;
+                          i4 = double.parse(value);
                         },
                         decoration: const InputDecoration(
                           contentPadding: EdgeInsets.symmetric(
@@ -194,13 +195,15 @@ class _InputState extends State<Input> {
                       borderRadius: BorderRadius.circular(20.0),
                       child: MaterialButton(
                           onPressed: () {
-                            Calc calculation =
-                                Calc(v: 230, i1: i1, i2: i2, i3: i3, i4: i4);
-                            calculation.calcMotor();
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => Result()));
+                                    builder: (context) => Result(
+                                          i1: i1,
+                                          i2: i2,
+                                          i3: i3,
+                                          i4: i4,
+                                        )));
                           },
                           child: Text(
                             'Generate values for DC motor',
@@ -220,7 +223,8 @@ class _InputState extends State<Input> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => Result()));
+                                    builder: (context) => Result2(
+                                        i1: i1, i2: i2, i3: i3, i4: i4)));
                           },
                           child: Text(
                             'Generate values for DC generator',
