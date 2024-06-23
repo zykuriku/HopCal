@@ -1,5 +1,7 @@
 import 'package:dc/utilities/calculations.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class Result2 extends StatelessWidget {
   Result2(
@@ -60,6 +62,33 @@ class Result2 extends StatelessWidget {
             SizedBox(
               height: 1.0,
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                FloatingActionButton(onPressed: (){
+                  Get.back();
+                },
+                  heroTag: UniqueKey(),
+                  backgroundColor: Colors.redAccent,
+                  child: Text(
+                      'Add more',
+                    textAlign: TextAlign.center,
+                  ),),
+
+                FloatingActionButton(
+
+                  onPressed: (){
+                    Get.toNamed('/table');
+                  },
+
+                  backgroundColor: Colors.redAccent,
+                  heroTag: UniqueKey(),
+
+                  child: Text('Show Table',
+                    textAlign: TextAlign.center,),
+                ),
+              ],
+            )
           ],
         ),
       ),

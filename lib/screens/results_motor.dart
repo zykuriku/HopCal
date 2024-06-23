@@ -1,5 +1,7 @@
+import 'package:dc/screens/table%20screen.dart';
 import 'package:dc/utilities/calculations.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../utilities/table class.dart';
 
@@ -64,6 +66,32 @@ class Result extends StatelessWidget {
             SizedBox(
               height: 1.0,
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                FloatingActionButton(onPressed: (){
+                  Get.back();
+                },
+                  heroTag: UniqueKey(),
+                  backgroundColor: Colors.redAccent,
+                child: Text(
+                  'Add more',
+                  textAlign: TextAlign.center,
+                ),
+                ),
+
+                FloatingActionButton(
+
+                    onPressed: (){
+                  Get.to(TableScreen());
+                },
+                  heroTag: UniqueKey(),
+                  backgroundColor: Colors.redAccent,
+                child: Center(child: Text('Show Table',
+                  textAlign: TextAlign.center,)),
+                ),
+              ],
+            )
           ],
         ),
       ),

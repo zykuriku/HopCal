@@ -1,4 +1,7 @@
 import 'package:dc/utilities/table class.dart';
+import 'package:get/get.dart';
+
+import 'list controller.dart';
 class Calc {
   Calc(
       {required this.v,
@@ -30,6 +33,7 @@ class Calc {
   double _generatorInputPower = 0;
   double _generatorOutputPower = 0;
   TableObject tableObject=TableObject();
+  ListController listController = Get.find<ListController>();
 
 
   void calcMotor() {
@@ -42,42 +46,48 @@ class Calc {
     _b = i2 + i4;
     double motorRa = 1.3;
     _motorArmatureCuLoss = _a * _a * motorRa;
-    tableObject.ArmatureCuLoss=_motorArmatureCuLoss.toStringAsFixed(2);
+    tableObject.ArmatureCuLoss=_motorArmatureCuLoss;
     _motorFieldLoss = v * i3;
-    tableObject.FieldLoss=_motorFieldLoss.toStringAsFixed(2);
+    tableObject.FieldLoss=_motorFieldLoss;
     _totalStrayLoss = v * i1 - (_a * _a * motorRa + _b * _b * motorRa);
-    tableObject.totalStrayLoss=_totalStrayLoss.toStringAsFixed(2);
+    tableObject.totalStrayLoss=_totalStrayLoss;
     _strayLossPerMachine = _totalStrayLoss / 2;
-    tableObject.strayLossPerMachine=_strayLossPerMachine.toStringAsFixed(2);
+    tableObject.strayLossPerMachine=_strayLossPerMachine;
     _totalMotorLoss =
         _motorArmatureCuLoss + _motorFieldLoss + _strayLossPerMachine;
-    tableObject.totalLoss=_totalMotorLoss.toStringAsFixed(2);
+    tableObject.totalLoss=_totalMotorLoss;
     _motorInputPower = _a * v + i3 * v;
-    tableObject.InputPower=_motorInputPower.toStringAsFixed(2);
+    tableObject.InputPower=_motorInputPower;
     _motorOutputPower = _motorInputPower - _totalMotorLoss;
-    tableObject.OutputPower=_motorOutputPower.toStringAsFixed(2);
+    tableObject.OutputPower=_motorOutputPower;
     _motorEfficiency = (_motorOutputPower / _motorInputPower) * 100;
-    tableObject.Efficiency=_motorEfficiency.toStringAsFixed(2);
+    tableObject.Efficiency=_motorEfficiency;
+
+    listController.addItem(tableObject);
+
+
+
 
   }
 
   void calcGenerator() {
     double generatorRa = 1.0;
     _generatorArmatureCuLoss = _b * _b * generatorRa;
-    tableObject.ArmatureCuLoss=_generatorArmatureCuLoss.toStringAsFixed(2);
+    tableObject.ArmatureCuLoss=_generatorArmatureCuLoss;
     _generatorFieldLoss = v * i4;
-    tableObject.FieldLoss=_generatorFieldLoss.toStringAsFixed(2);
+    tableObject.FieldLoss=_generatorFieldLoss;
     _totalGeneratorLoss =
         _generatorArmatureCuLoss + _generatorFieldLoss + _strayLossPerMachine;
-    tableObject.FieldLoss=_totalGeneratorLoss.toStringAsFixed(2);
+    tableObject.FieldLoss=_totalGeneratorLoss;
     _generatorOutputPower = v * i2;
-    tableObject.OutputPower=_generatorOutputPower.toStringAsFixed(2);
+    tableObject.OutputPower=_generatorOutputPower;
     _generatorInputPower = _generatorOutputPower + _totalGeneratorLoss;
 
-    tableObject.InputPower=_generatorInputPower.toStringAsFixed(2);
+    tableObject.InputPower=_generatorInputPower;
 
     _generatorEfficiency = (_generatorOutputPower / _generatorInputPower) * 100;
-    tableObject.Efficiency=_generatorEfficiency.toStringAsFixed(2);
+    tableObject.Efficiency=_generatorEfficiency;
+    listController.addItem(tableObject);
   }
 
   double retMCuLoss() {

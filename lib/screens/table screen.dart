@@ -1,17 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class Table extends StatefulWidget {
-  const Table({super.key});
+class TableScreen extends StatefulWidget {
+  const TableScreen({super.key});
 
   @override
-  State<Table> createState() => _TableState();
+  State<TableScreen> createState() => _TableScreenState();
 }
 
-class _TableState extends State<Table> {
+class _TableScreenState extends State<TableScreen> {
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-
+    return  SafeArea(
+      child: Scaffold(
+      
+        backgroundColor: Colors.white,
+      
+      
+      
+      ),
     );
   }
 }

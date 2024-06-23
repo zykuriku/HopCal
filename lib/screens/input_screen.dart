@@ -1,8 +1,9 @@
 import 'package:dc/screens/results_generator.dart';
 import 'package:flutter/material.dart';
 import 'package:dc/screens/results_motor.dart';
-
+import 'package:get/get.dart';
 import '../utilities/calculations.dart';
+import '../utilities/list controller.dart';
 
 class Input extends StatefulWidget {
   const Input({super.key});
@@ -16,6 +17,12 @@ class _InputState extends State<Input> {
   late double i2;
   late double i3;
   late double i4;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    Get.put(ListController());
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
