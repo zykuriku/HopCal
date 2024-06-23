@@ -1,6 +1,7 @@
 import 'package:dc/utilities/calculations.dart';
 import 'package:flutter/material.dart';
-import 'package:dc/screens/input_screen.dart';
+
+import '../utilities/table class.dart';
 
 class Result extends StatelessWidget {
   Result(
@@ -14,6 +15,8 @@ class Result extends StatelessWidget {
   Widget build(BuildContext context) {
     Calc calculation = Calc(v: 230, i1: i1, i2: i2, i3: i3, i4: i4);
     calculation.calcMotor();
+
+
 
     return Scaffold(
       appBar: AppBar(

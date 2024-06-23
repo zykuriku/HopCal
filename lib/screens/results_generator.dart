@@ -1,6 +1,5 @@
 import 'package:dc/utilities/calculations.dart';
 import 'package:flutter/material.dart';
-import 'package:dc/screens/input_screen.dart';
 
 class Result2 extends StatelessWidget {
   Result2(
