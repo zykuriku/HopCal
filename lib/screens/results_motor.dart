@@ -36,32 +36,32 @@ class Result extends StatelessWidget {
               ),
               Text(
                 "Armature Cu Loss: " +
-                    calculation.retMCuLoss().toStringAsFixed(2),
+                    calculation.retMCuLoss().toStringAsFixed(2)+'J',
                 style: TextStyle(fontSize: 20.0),
               ),
               Text(
-                "Field Loss: " + calculation.retMFLoss().toStringAsFixed(2),
+                "Field Loss: " + calculation.retMFLoss().toStringAsFixed(2)+'J',
                 style: TextStyle(fontSize: 20.0),
               ),
               Text(
                 "Stray Loss per machine: " +
-                    calculation.retSPMLoss().toStringAsFixed(2),
+                    calculation.retSPMLoss().toStringAsFixed(2)+'J',
                 style: TextStyle(fontSize: 20.0),
               ),
               Text(
-                "Total Loss: " + calculation.retMTLoss().toStringAsFixed(2),
+                "Total Loss: " + calculation.retMTLoss().toStringAsFixed(2)+'J',
                 style: TextStyle(fontSize: 20.0),
               ),
               Text(
-                "Input Power: " + calculation.retMIP().toStringAsFixed(2),
+                "Input Power: " + calculation.retMIP().toStringAsFixed(2)+'W',
                 style: TextStyle(fontSize: 20.0),
               ),
               Text(
-                "Output Power: " + calculation.retMOP().toStringAsFixed(2),
+                "Output Power: " + calculation.retMOP().toStringAsFixed(2)+'W',
                 style: TextStyle(fontSize: 20.0),
               ),
               Text(
-                "Efficiency: " + calculation.retME().toStringAsFixed(2),
+                "Efficiency: " + calculation.retME().toStringAsFixed(2)+'%',
                 style: TextStyle(fontSize: 20.0),
               ),
               SizedBox(
