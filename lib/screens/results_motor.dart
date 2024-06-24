@@ -84,6 +84,7 @@ class Result extends StatelessWidget {
                   FloatingActionButton(
       
                       onPressed: (){
+
                     Get.to(TableScreen());
                   },
                     heroTag: UniqueKey(),

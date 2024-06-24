@@ -7,4 +7,8 @@ class ListController extends GetxController {
   void addItem(TableObject item) {
     table.add(item);
   }
+  void clearItems() {
+    table.clear();
+  }
 }
+

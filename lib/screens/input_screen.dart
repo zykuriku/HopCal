@@ -226,9 +226,7 @@ class _InputState extends State<Input> {
                         borderRadius: BorderRadius.circular(20.0),
                         child: MaterialButton(
                             onPressed: () {
-                              Calc calculation =
-                                  Calc(v: 230, i1: i1, i2: i2, i3: i3, i4: i4);
-                              calculation.calcGenerator();
+
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(

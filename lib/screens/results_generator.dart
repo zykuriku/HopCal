@@ -1,3 +1,4 @@
+import 'package:dc/screens/table%20screen.dart';
 import 'package:dc/utilities/calculations.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -14,8 +15,9 @@ class Result2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Calc calculation = Calc(v: 230, i1: i1, i2: i2, i3: i3, i4: i4);
-    calculation.calcMotor();
+
     calculation.calcGenerator();
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.redAccent,
@@ -71,23 +73,25 @@ class Result2 extends StatelessWidget {
                   heroTag: UniqueKey(),
                   backgroundColor: Colors.redAccent,
                   child: Text(
-                      'Add more',
+                    'Add more',
                     textAlign: TextAlign.center,
-                  ),),
+                  ),
+                ),
 
                 FloatingActionButton(
 
                   onPressed: (){
-                    Get.toNamed('/table');
+                    Get.to(TableScreen());
                   },
-
-                  backgroundColor: Colors.redAccent,
                   heroTag: UniqueKey(),
-
-                  child: Text('Show Table',
-                    textAlign: TextAlign.center,),
+                  backgroundColor: Colors.redAccent,
+                  child: Center(child: Text('Show Table',
+                    textAlign: TextAlign.center,)),
                 ),
               ],
+            ),
+            SizedBox(
+              height: 1.0,
             )
           ],
         ),

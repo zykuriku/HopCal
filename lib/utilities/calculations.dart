@@ -32,11 +32,12 @@ class Calc {
   double _totalGeneratorLoss = 0;
   double _generatorInputPower = 0;
   double _generatorOutputPower = 0;
-  TableObject tableObject=TableObject();
+
   ListController listController = Get.find<ListController>();
 
 
   void calcMotor() {
+    TableObject tableObject=TableObject();
     print("in motor");
     tableObject.i1=i1;
     tableObject.i2=i1;
@@ -71,14 +72,23 @@ class Calc {
   }
 
   void calcGenerator() {
+    TableObject tableObject=TableObject();
+    print('in gen');
     double generatorRa = 1.0;
+    double motorRa = 1.3;
+    _a = i1 + i2;
+    _b = i2 + i4;
     _generatorArmatureCuLoss = _b * _b * generatorRa;
     tableObject.ArmatureCuLoss=_generatorArmatureCuLoss;
     _generatorFieldLoss = v * i4;
     tableObject.FieldLoss=_generatorFieldLoss;
+    _totalStrayLoss = v * i1 - (_a * _a * motorRa + _b * _b * motorRa);
+    tableObject.totalStrayLoss=_totalStrayLoss;
+    _strayLossPerMachine = _totalStrayLoss / 2;
+    tableObject.strayLossPerMachine=_strayLossPerMachine;
     _totalGeneratorLoss =
         _generatorArmatureCuLoss + _generatorFieldLoss + _strayLossPerMachine;
-    tableObject.FieldLoss=_totalGeneratorLoss;
+    tableObject.totalLoss=_totalGeneratorLoss;
     _generatorOutputPower = v * i2;
     tableObject.OutputPower=_generatorOutputPower;
     _generatorInputPower = _generatorOutputPower + _totalGeneratorLoss;
@@ -90,8 +100,9 @@ class Calc {
     listController.addItem(tableObject);
   }
 
+
   double retMCuLoss() {
-    print(_motorArmatureCuLoss);
+
     return _motorArmatureCuLoss;
   }
 
