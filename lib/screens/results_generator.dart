@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import 'generator table screen.dart';
+
 class Result2 extends StatelessWidget {
   Result2(
       {required this.i1, required this.i2, required this.i3, required this.i4});
@@ -81,7 +83,7 @@ class Result2 extends StatelessWidget {
                 FloatingActionButton(
 
                   onPressed: (){
-                    Get.to(TableScreen());
+                    Get.to(GenTableScreen());
                   },
                   heroTag: UniqueKey(),
                   backgroundColor: Colors.redAccent,

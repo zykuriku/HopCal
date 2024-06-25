@@ -22,6 +22,7 @@ class _InputState extends State<Input> {
     // TODO: implement initState
     super.initState();
     Get.put(ListController());
+    Get.put(GenListController());
   }
 
   @override

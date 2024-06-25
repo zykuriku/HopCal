@@ -34,7 +34,7 @@ class Calc {
   double _generatorOutputPower = 0;
 
   ListController listController = Get.find<ListController>();
-
+  GenListController genListController = Get.find<GenListController>();
 
   void calcMotor() {
     TableObject tableObject=TableObject();
@@ -97,7 +97,7 @@ class Calc {
 
     _generatorEfficiency = (_generatorOutputPower / _generatorInputPower) * 100;
     tableObject.Efficiency=_generatorEfficiency;
-    listController.addItem(tableObject);
+    genListController.addItem(tableObject);
   }
 
 

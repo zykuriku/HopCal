@@ -12,3 +12,13 @@ class ListController extends GetxController {
   }
 }
 
+class GenListController extends GetxController {
+  RxList table = [].obs;
+
+  void addItem(TableObject item) {
+    table.add(item);
+  }
+  void clearItems() {
+    table.clear();
+  }
+}

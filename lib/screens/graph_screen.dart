@@ -12,16 +12,31 @@ class ChartData {
 
 
 class GraphScreen extends StatelessWidget {
-  const GraphScreen({super.key});
+  final String? from = Get.arguments as String?;
+
+  get listController => null;
 
   @override
   Widget build(BuildContext context) {
     List<ChartData> chartdata=[];
-    ListController listController = Get.find<ListController>();
-    for(int i=0;i<listController.table.length;i++)
-      {
-        chartdata.add(ChartData(listController.table[i].OutputPower,listController.table[i].Efficiency));
+    
+    if(from=="motor") {
+      ListController listController = Get.find<ListController>();
+
+      for (int i = 0; i < listController.table.length; i++) {
+        chartdata.add(ChartData(listController.table[i].OutputPower,
+            listController.table[i].Efficiency));
       }
+    }
+    
+    else{
+      GenListController listController = Get.find<GenListController>();
+
+      for (int i = 0; i < listController.table.length; i++) {
+        chartdata.add(ChartData(listController.table[i].OutputPower,
+            listController.table[i].Efficiency));
+      }
+    }
 
 
     return SafeArea(
@@ -50,7 +65,7 @@ class GraphScreen extends StatelessWidget {
                           ),
                 )),
             TextButton(onPressed: (){
-              listController.clearItems();
+
               Get.toNamed('/');
 
             },

@@ -152,7 +152,7 @@ class _TableScreenState extends State<TableScreen> {
               Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: FloatingActionButton(onPressed: (){
-                  Get.toNamed('/graph');
+                  Get.toNamed('/graph',arguments: "motor");
                 },backgroundColor: Colors.redAccent,
                 child: Container(
                   
