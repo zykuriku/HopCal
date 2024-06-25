@@ -8,7 +8,7 @@ Language used: Dart
 
 State management used: GetX
 
-Some instances from the app:
+Some instances from the app (based on random values):
 
 
 ![Simulator Screenshot - iPhone SE (3rd generation) - 2024-06-25 at 17.22.00.png](Simulator%20Screenshot%20-%20iPhone%20SE%20%283rd%20generation%29%20-%202024-06-25%20at%2017.22.00.png)
